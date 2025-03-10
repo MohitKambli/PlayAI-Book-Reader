@@ -10,12 +10,12 @@ export const PlayAITextToSpeech = ({ text }: PlayAIProps) => {
 
   const playAudio = async () => {
     if (!text) return;
-
+    console.log(process.env.NEXT_PUBLIC_API_KEY + ", " + process.env.NEXT_PUBLIC_USER_ID);
     const options = {
       method: "POST",
       headers: {
-        AUTHORIZATION: process.env.API_KEY,
-        "X-USER-ID": process.env.USER_ID,
+        AUTHORIZATION: process.env.NEXT_PUBLIC_API_KEY,
+        "X-USER-ID": process.env.NEXT_PUBLIC_USER_ID,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
