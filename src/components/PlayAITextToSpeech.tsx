@@ -10,7 +10,6 @@ export const PlayAITextToSpeech = ({ text }: PlayAIProps) => {
 
   const playAudio = async () => {
     if (!text) return;
-    console.log(process.env.NEXT_PUBLIC_API_KEY + ", " + process.env.NEXT_PUBLIC_USER_ID);
     const options = {
       method: "POST",
       headers: {
@@ -35,6 +34,7 @@ export const PlayAITextToSpeech = ({ text }: PlayAIProps) => {
         throw new Error("Failed to generate audio");
       }
       const data = await response.json();
+      console.log('Response: ', response);
       const audioUrl = data.audio_url;
       const newAudio = new Audio(audioUrl);
       newAudio.play();
