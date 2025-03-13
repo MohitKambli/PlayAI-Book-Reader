@@ -4,6 +4,30 @@ import { pdfjs } from "react-pdf";
 import PDFUploader from "../components/PDFUploader";
 import PDFViewer from "../components/PDFViewer";
 import AudioPlayer from "../components/AudioPlayer";
+import VoiceSelection from "../components/VoiceSelection";
+
+const voices = [
+  {
+    name: "Angelo",
+    value: "s3://voice-cloning-zero-shot/baf1ef41-36b6-428c-9bdf-50ba54682bd8/original/manifest.json",
+  },
+  {
+    name: "Deedee",
+    value: "s3://voice-cloning-zero-shot/e040bd1b-f190-4bdb-83f0-75ef85b18f84/original/manifest.json",
+  },
+  {
+    name: "Jennifer",
+    value: "s3://voice-cloning-zero-shot/801a663f-efd0-4254-98d0-5c175514c3e8/jennifer/manifest.json",
+  },
+  {
+    name: "Briggs",
+    value: "s3://voice-cloning-zero-shot/71cdb799-1e03-41c6-8a05-f7cd55134b0b/original/manifest.json",
+  },
+  {
+    name: "Samara",
+    value: "s3://voice-cloning-zero-shot/90217770-a480-4a91-b1ea-df00f4d4c29d/original/manifest.json",
+  },
+];
 
 const Home: NextPage = () => {
   useEffect(() => {
@@ -16,6 +40,7 @@ const Home: NextPage = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+  const [selectedVoice, setSelectedVoice] = useState<string>(voices[0].value);
 
   const onFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -65,7 +90,7 @@ const Home: NextPage = () => {
         language: "english",
         model: "PlayDialog",
         text: pdfText[currentPage],
-        voice: "s3://voice-cloning-zero-shot/baf1ef41-36b6-428c-9bdf-50ba54682bd8/original/manifest.json",
+        voice: selectedVoice,
       }),
     };
 
@@ -115,6 +140,7 @@ const Home: NextPage = () => {
     <div className="p-6 max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold mb-6 text-center">PlayAI Book Reader</h1>
       <PDFUploader onFileChange={onFileChange} />
+      <VoiceSelection voices={voices} onVoiceChange={setSelectedVoice} loading={loading}/>
       {pdfFile && (
         <>
           <PDFViewer 
