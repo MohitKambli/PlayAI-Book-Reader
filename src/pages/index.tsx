@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from "react";
 import { NextPage } from "next";
 import { pdfjs } from "react-pdf";
