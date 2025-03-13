@@ -53,6 +53,9 @@ npm run build
 npm run start
 ```
 
+## Component Structure
+
+![image](https://github.com/user-attachments/assets/8a354206-4119-4da9-b2fd-a675e70f3130)
 
 ## Features
 
