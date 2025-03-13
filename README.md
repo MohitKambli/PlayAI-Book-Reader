@@ -67,3 +67,9 @@ npm run start
 - State Management: The app uses React's useState and useEffect hooks to manage component state, such as the current page of the PDF, loading status, and audio playback.
 - Asynchronous Handling: Text-to-speech conversion is handled asynchronously, with the app displaying a loading spinner while waiting for the audio to be processed. Once ready, the audio player is shown with playback controls.
 - Responsive UI: Tailwind CSS is used to ensure the app has a responsive design, providing a smooth experience on both desktop and mobile devices.
+
+## Web Application Link
+
+```
+https://play-ai-bookreader.vercel.app/
+```
