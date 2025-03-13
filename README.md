@@ -1,5 +1,3 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
-
 ## PlayAI Book Reader
 
 A web application that allows users to upload PDF files, extract text, and convert it into speech using a text-to-speech (TTS) service. The application also provides the ability to control the TTS voice selection and listen to the audio playback.
