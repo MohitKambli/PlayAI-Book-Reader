@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+body, html {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #E5E7EB; /* Equivalent to bg-gray-200 */
+}

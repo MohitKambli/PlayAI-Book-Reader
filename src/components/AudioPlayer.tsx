@@ -24,7 +24,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ isPlaying, audioUrl, loading,
   };
 
   return (
-    <div>
+    <div className="space-y-10">
       <button
         className="bg-blue-500 text-white px-4 py-2 rounded mt-4 w-full flex justify-center items-center relative"
         onClick={handleConvertClick}
