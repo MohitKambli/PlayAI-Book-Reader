@@ -1,40 +1,71 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
 
-## Getting Started
+## PlayAI Book Reader
 
-First, run the development server:
+A web application that allows users to upload PDF files, extract text, and convert it into speech using a text-to-speech (TTS) service. The application also provides the ability to control the TTS voice selection and listen to the audio playback.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Technologies Used
+
+- React - Frontend framework for building the user interface.
+- Next.js - React framework used for server-side rendering and routing.
+- React-PDF - Library for rendering PDF files and extracting text.
+- Play.AI TTS API - API for converting text to speech with different voice options.
+- Tailwind CSS - Utility-first CSS framework for styling.
+- CircularLoader - A simple loading spinner for indicating processing state.
+
+### How to Run the App
+#### 1. Clone the repository
+
+```
+git clone https://github.com/MohitKambli/PlayAI-Book-Reader.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### 2. Install dependencies
+Navigate to the project directory and install the dependencies:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```
+cd playai-book-reader
+npm install
+```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+#### 3. Set up environment variables
+Create a .env file in the root directory and add the following environment variables:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+```
+NEXT_PUBLIC_API_KEY=your-api-key
+NEXT_PUBLIC_USER_ID=your-user-id
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Replace your-api-key and your-user-id with the actual credentials for accessing the Play.AI API.
 
-## Learn More
+#### 4. Run the application
+To run the app in development mode, use the following command:
 
-To learn more about Next.js, take a look at the following resources:
+```
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+The app will be available at http://localhost:3000.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+#### 5. Build and deploy
+To build the application for production:
 
-## Deploy on Vercel
+```
+npm run build
+npm run start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+### Features
+
+- PDF Upload: Users can upload PDF files, and the text is extracted for further processing.
+- Voice Selection: Users can select from a variety of voices for the text-to-speech conversion.
+- Audio Playback: Once the text is converted to speech, users can listen to the audio directly from the browser.
+- Loading Indicator: A loading spinner is shown while the TTS process is being handled.
+
+### Design Decisions
+
+- Modular Components: The app is structured with reusable components such as PDFUploader, PDFViewer, AudioPlayer, and VoiceSelection. This modularity allows for easy maintenance and scalability.
+- State Management: The app uses React's useState and useEffect hooks to manage component state, such as the current page of the PDF, loading status, and audio playback.
+- Asynchronous Handling: Text-to-speech conversion is handled asynchronously, with the app displaying a loading spinner while waiting for the audio to be processed. Once ready, the audio player is shown with playback controls.
+- Responsive UI: Tailwind CSS is used to ensure the app has a responsive design, providing a smooth experience on both desktop and mobile devices.
