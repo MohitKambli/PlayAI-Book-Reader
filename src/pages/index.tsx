@@ -139,7 +139,7 @@ const Home: NextPage = () => {
   return (
     <div className="p-6 max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold mb-6 text-center">PlayAI Book Reader</h1>
-      <PDFUploader onFileChange={onFileChange} />
+      <PDFUploader onFileChange={onFileChange} loading={loading} />
       <VoiceSelection voices={voices} onVoiceChange={setSelectedVoice} loading={loading}/>
       {pdfFile && (
         <>

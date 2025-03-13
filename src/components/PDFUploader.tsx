@@ -2,9 +2,10 @@ import React from "react";
 
 interface PDFUploaderProps {
   onFileChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  loading: boolean;
 }
 
-const PDFUploader: React.FC<PDFUploaderProps> = ({ onFileChange }) => {
+const PDFUploader: React.FC<PDFUploaderProps> = ({ onFileChange, loading }) => {
   return (
     <div className="flex justify-center">
       <input
@@ -12,6 +13,7 @@ const PDFUploader: React.FC<PDFUploaderProps> = ({ onFileChange }) => {
         onChange={onFileChange}
         accept="application/pdf"
         className="border p-2 rounded"
+        disabled={loading}
       />
     </div>
   );
